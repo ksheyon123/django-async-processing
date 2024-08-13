@@ -16,10 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url
-from djangoasync.web.views import test
+from djangoasync.web.views.test import renderer
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^test$', test, name='test')
+    path("test/", renderer),
 ]

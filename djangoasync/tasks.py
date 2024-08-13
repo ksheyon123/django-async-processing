@@ -1,7 +1,5 @@
-from celery import Celery
+from celery import shared_task
 
-app = Celery('tasks', broker='amqp://guest:guest@localhost:5672/')
-
-@app.task
+@shared_task
 def add(x, y):
     return x + y
