@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  redis:
+    image: redis:5.0
+    ports:
+      - 6379:6379
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      - RABBITMQ_DEFAULT_USER=thepol
+      - RABBITMQ_DEFAULT_PASS=1
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmqdata:/var/lib/rabbitmq
+
+volumes:
+  dbdata:
+    driver: local
+  rabbitmqdata:
+    driver: local
